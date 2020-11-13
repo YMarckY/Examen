@@ -1,0 +1,120 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Primera 5B</title>
+	<style type="text/css">
+		body{margin:0px;font-family: arial;}
+		.menu{width:1022px;padding:10px 0px;border:1px solid white;margin:0px auto;text-align: left;}
+		#opc1{padding:10px;background-color: #F5A9E1;cursor:pointer;}/*rosa*/
+		#opc2{padding:10px;background-color: #FA8258;cursor:pointer;}/*naranja*/
+		#opc3{padding:10px;background-color: #E6E6E6;cursor:pointer;}/*gris*/
+		#contenido{width: 1024px;margin: 0px auto;}
+		h3 span{font-size: 10px; color: #b3b3b3;}
+		.news{width: 40px;float: left;}
+		.titIcono{margin-left:45px;width: 150px;}
+		#sugiere{font-size: 8pt;color: gray;font-style: italic;}
+		#relleno {margin-bottom: 10px;}
+	</style>
+	<script type="text/javascript">
+		var c=0,l=0;
+		function opcion(numero1)
+		{
+			switch(numero1)
+			{
+				case 1:
+				
+				document.getElementById('cuerpo').style.background = '#F5A9E1';
+					break;
+
+				case 2:
+				document.getElementById('cuerpo').style.background = '#FA8258';
+					break;
+
+				case 3:
+				document.getElementById('cuerpo').style.background = '#E6E6E6';
+					break;
+			}
+			
+		}
+		function mostrarlista()
+		{
+			lista.style.display = "block";
+		}
+		function likes()
+		{
+			c++;
+			document.getElementById("info").innerHTML = c+" Me gusta";
+		}
+		function compras()
+		{
+		if(l==0)
+		{
+			document.getElementById('salida').innerHTML="<tr><td>"+"Producto"+"</td><td>"+"Precio"+"</td><td>"+"Cantidad"+"</td><td>"+"Importe"+"</td></tr>";
+			l=1;
+		}
+			
+			var p = document.getElementById('producto').value;
+			var pre = document.getElementById('precio').value;
+			var cant = document.getElementById('cantidad').value;
+			var importe = pre*cant;
+  			
+   		    document.getElementById('salida').insertRow(-1).innerHTML+="<tr><td>"+p+"</td><td>"+pre+"</td><td>"+cant+"</td><td>"+importe+"</td></tr>";
+
+
+		}
+		
+	</script>
+</head>
+<body id="cuerpo">
+	<center>
+		<div id="arriba"  style="background-color: #1abc9c">
+			<img src="images/banner5b.jpg">
+			<div class="menu"><span id="opc1" onclick="opcion(1);">Elementos HTML</span>&nbsp;<span id="opc2" onclick="opcion(2);">Procesos</span>&nbsp;<span id="opc3" onclick="opcion(3);">Relleno</span></div>
+		</div>
+	</center>
+	<div id="contenido">
+		<div id="ordenadas">
+			<h2>Sección de elementos HTML</h3>
+			<h3 onclick="mostrarlista();" onmouseenter="this.style.cursor='pointer';">Listas ordenadas <span>(Click para generar lista)</span></h3>
+			<div id="lista" style="display: none;">
+				<li>1.- Elemento de la lista</li>
+				<li>2.- Elemento de la lista</li>
+				<li>3.- Elemento de la lista</li>
+				<li>4.- Elemento de la lista</li>
+				<li>5.- Elemento de la lista</li>
+				<li>6.- Elemento de la lista</li>
+				<li>7.- Elemento de la lista</li>
+				<li>8.- Elemento de la lista</li>
+				<li>9.- Elemento de la lista</li>
+				<li>10.- Elemento de la lista</li>
+			</div>
+		</div>
+		<div id="procesos">
+			<h2>Sección de procesos</h2>
+			<p>Producto:<input type="text" id="producto" size="20">&nbsp;Precio:<input type="text" id="precio" size="10">&nbsp;Cantidad:<input type="text" id="cantidad" size="10"></p>
+			<button onclick="compras();">Agregar compra</button>
+			
+			<div>
+				<table style="font-size: 20px;" id="salida" border="1" width="50%">
+
+				</table>
+			</div>
+		</div>
+		<div id="relleno">	
+			<h2>Sección relleno</h2>
+			<div>
+				<img class="news" src="images/iconoNews.png"><div class="titIcono"><p>Conteos y algo mas<br><span id="sugiere">Levantamiento de información</span></p></div> 
+				<br />
+				<img onclick="likes();" src="images/like.jpg" width="200" onmouseenter="this.style.cursor='pointer';">
+				<h3 id="info">Me gusta</h3>
+			</div>
+		</div>
+	</div>
+	<hr style="margin-left: 420px; margin-right: 420px;">
+	<center>
+	<div id="pie">
+		<p>&copy; Desarrollado por:<a href="#">Jona</a></p>
+	</div>
+	</center>
+</body>
+</html>
